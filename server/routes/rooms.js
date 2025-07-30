@@ -116,12 +116,12 @@ router.post('/join', authenticateToken, async (req, res) => {
     if (!code) {
       return res.status(400).json({ error: 'Room code is required' });
     }
-
+    console.log(`Joining room with code: ${code}`);
     const room = await Room.findOne({ 
       code: code.toUpperCase(),
       isActive: true 
     });
-
+    console.log(room);
     if (!room) {
       return res.status(404).json({ error: 'Room not found' });
     }

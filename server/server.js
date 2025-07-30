@@ -67,7 +67,7 @@ const limiter = rateLimit({
   legacyHeaders: false
 });
 
-app.use('/api/', limiter);
+// app.use('/api/', limiter);
 
 // Auth rate limiting (stricter)
 const authLimiter = rateLimit({
