@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://privatecircle-production.up.railway.app/api';
 // Assumes JWT auth with Bearer token
 export const getRooms = async (token: string) => {
   const resp = await fetch(`${API_BASE_URL}/rooms`, {

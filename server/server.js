@@ -16,7 +16,7 @@ import agoraRoutes from './routes/agora.js';
 import { authenticateSocket } from './middleware/auth.js';
 
 // Import socket handlers
-import { handleConnection } from './socket/socketHandlers.js';
+import { handleConnection } from './socket/SocketHandlers.js';
 
 // Load environment variables
 dotenv.config();
@@ -26,9 +26,10 @@ const server = createServer(app);
 
 // CORS configuration
 const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-domain.com'] // Replace with your production domain
-    : ['http://localhost:5174', 'http://localhost:3000'],
+  origin: '*', // Allow all origins
+  // origin: process.env.NODE_ENV === 'production' 
+  //   ? ['https://your-domain.com'] // Replace with your production domain
+  //   : ['http://localhost:5174', 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -67,7 +68,7 @@ const limiter = rateLimit({
   legacyHeaders: false
 });
 
-app.use('/api/', limiter);
+// app.use('/api/', limiter);
 
 // Auth rate limiting (stricter)
 const authLimiter = rateLimit({

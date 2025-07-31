@@ -37,7 +37,7 @@ export const useSocket = (roomId: string | null, userId: string | null) => {
     if (!token) return;
 
     // Initialize socket connection with auth
-    socketRef.current = io("http://localhost:3001", {
+    socketRef.current = io("https://privatecircle-production.up.railway.app", {
       auth: {
         token,
       },

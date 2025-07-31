@@ -44,7 +44,7 @@ export const CallInterface: React.FC<CallInterfaceProps> = ({
       try {
         // Get Agora token from backend
         const accessToken = localStorage.getItem('accessToken');
-        const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+        const apiUrl = import.meta.env.VITE_API_URL || 'https://privatecircle-production.up.railway.app';
         
         const response = await fetch(`${apiUrl}/api/agora/token/${roomId}`, {
           method: 'POST',
