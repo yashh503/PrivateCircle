@@ -43,7 +43,7 @@ export const useAuthProvider = () => {
 
   const fetchUserFromToken = async (token: string) => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://privatecircle-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/auth/verify`, {
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -68,7 +68,7 @@ export const useAuthProvider = () => {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://privatecircle-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/auth/login`, {
         method: 'POST',
         headers: {
@@ -94,7 +94,7 @@ export const useAuthProvider = () => {
 
   const signup = async (username: string, email: string, password: string): Promise<boolean> => {
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://privatecircle-production.up.railway.app';
       const response = await fetch(`${apiUrl}/api/auth/signup`, {
         method: 'POST',
         headers: {
@@ -123,7 +123,7 @@ export const useAuthProvider = () => {
     
     // Call logout endpoint to invalidate tokens
     if (refreshToken && accessToken) {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://privatecircle-production.up.railway.app';
       fetch(`${apiUrl}/api/auth/logout`, {
         method: 'POST',
         headers: {
